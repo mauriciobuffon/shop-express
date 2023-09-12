@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: secret
+      MARIADB_DATABASE: shop
+      MARIADB_USER: app
+      MARIADB_PASSWORD: app-secret
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080

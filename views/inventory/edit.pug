@@ -1,0 +1,24 @@
+extends ../layouts/main.pug
+
+block link 
+    link(rel="stylesheet", href="/css/product.css")
+    link(rel="stylesheet", href="/css/forms.css")
+
+block main 
+    main
+        form.product-form(action="/inventory", method="post") 
+            input#id(type="text", name="id", hidden="true", value=product.id)
+            .form-control 
+                label(for="title") Title 
+                input#title(type="text", name="title", value=product.title)
+            .form-control 
+                label(for="imageUrl") Image URL
+                input#imageUrl(type="text", name="imageUrl", value=product.imageUrl)
+            .form-control 
+                label(for="price") Price
+                input#price(type="number", name="price", step="0.01", min="0", value=product.price)
+            .form-control 
+                label(for="description") Description
+                textarea#description(name="description", cols="30", rows="5") #{product.description}
+
+            button.btn(type="submit") Save

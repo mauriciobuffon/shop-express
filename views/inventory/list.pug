@@ -1,0 +1,21 @@
+extends ../layouts/main.pug
+
+block link
+    link(rel="stylesheet", href="/css/product.css")
+
+block main 
+    main
+        .grid 
+            each product in products
+                article.card.product-item 
+                    header.card__header 
+                        h1.product__title #{product.title}
+                    .card__image 
+                        img(src=product.imageUrl, alt="")
+                    .card__content 
+                        h2.product__price #{product.price}
+                        p.product__description #{product.description}
+                    .card__actions 
+                        a.btn(href=`edit/${product.id}`) Edit
+                        form(action=`/inventory/delete/${product.id}`, method="post") 
+                            button.btn Delete

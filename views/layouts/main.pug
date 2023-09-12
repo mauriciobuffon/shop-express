@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{pageTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        block link
+    body 
+        header.main-header
+            nav.main-header__nav 
+                ul.main-header__item-list 
+                    li.main-header__item
+                        a(href="/shopping/list", class=(path === 'shopping/list' ? 'active' : '')) Shopping
+                    li.main-header__item
+                        a(href="/shopping/cart", class=(path === 'shopping/cart' ? 'active' : '')) Cart
+                    li.main-header__item 
+                        a(href="/inventory/list", class=(path === 'inventory/list' ? 'active' : '')) Inventory
+                    li.main-header__item 
+                        a(href="/inventory/edit", class=(path === 'inventory/edit' ? 'active' : '')) New product
+        block main

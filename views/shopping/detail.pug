@@ -1,0 +1,16 @@
+extends ../layouts/main.pug
+
+block main
+    main.centered 
+        if product 
+            h1 #{product.title}
+            hr
+            div 
+                img(src=product.imageUrl, alt=product.title) 
+            h2 #{product.price} 
+            p #{product.description} 
+            form(action="cart", method="post") 
+                button.btn(type="submit") Add to Cart 
+                input(type="hidden", name="productId" value=product.id)
+        else 
+            h2 Product not found 
